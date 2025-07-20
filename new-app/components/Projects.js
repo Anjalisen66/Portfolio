@@ -18,9 +18,9 @@ const Projects = () => {
     },
     {
       title: "Task Management App",
-      description: "A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      description: "Let’s Plan – A task management app built with React. Features include adding, editing, completing, and deleting tasks to help users stay organized and productive.",
       image: img2.src,
-      technologies: ["React", "TypeScript", "Firebase", "Material-UI"],
+      technologies: ["React", "JavaScript", "Font Awesome"],
       github: "https://github.com/Anjalisen66/To-Do-List",
       demo: "https://letsplan.vercel.app/"
     },

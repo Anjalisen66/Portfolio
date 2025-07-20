@@ -13,12 +13,12 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold font-playfair mb-4">Anjali Sen</h3>
             <p className="text-gray-300 leading-relaxed">
-              Full Stack Developer passionate about creating beautiful, 
+              Full Stack Developer passionate about creating beautiful,
               functional web experiences that make a difference.
             </p>
           </div>
 
-          <div>
+          <div className="md:text-center mx-auto">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2">
               {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((link) => (
@@ -36,7 +36,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+
+          {/* <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <div className="space-y-2 text-gray-300">
               <p>Web Development</p>
@@ -45,12 +46,12 @@ const Footer = () => {
               <p>Consulting</p>
               <p>Code Review</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          
-          
+
+
           <div className="text-gray-300 text-center md:text-right">
             <p>&copy; {new Date().getFullYear()} Anjali Sen. All rights reserved.</p>
           </div>

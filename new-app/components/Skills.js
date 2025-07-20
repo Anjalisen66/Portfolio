@@ -5,25 +5,25 @@ const Skills = () => {
     {
       title: "Frontend",
       skills: [
-        { name: "React", level: 95 },
-        { name: "Tailwind CSS", level: 95 },
-        { name: "JavaScript", level: 80 }
+        { name: "React" },
+        { name: "Tailwind CSS" },
+        { name: "JavaScript" }
       ]
     },
     {
       title: "Backend",
       skills: [
-        { name: "Node.js", level: 90 },
-        { name: "MySQL", level: 85 },
-        { name: "MongoDB", level: 80 },
+        { name: "Node.js"},
+        { name: "MySQL" },
+        { name: "MongoDB" },
       ]
     },
     {
       title: "Tools & Others",
       skills: [
-        { name: "Git", level: 95 },
-        { name: "Postman", level: 80 },
-        { name: "Vercel", level: 85 },
+        { name: "Git" },
+        { name: "Postman" },
+        { name: "Vercel" },
       ]
     }
   ];
@@ -51,47 +51,51 @@ const Skills = () => {
               </h3>
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
+                  <div key={skillIndex} className='flex justify-center' >
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-300 font-medium">
                         {skill.name}
                       </span>
-                      <span className="text-sm text-gray-300">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div
-                        className="bg-portfolio-blue h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
                     </div>
                   </div>
                 ))}
               </div>
+
             </div>
           ))}
         </div>
-
+        {/* Additional certifications or achievements */}
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-semibold text-white mb-8">
+          <h3 className="text-2xl font-semibold text-white mb-8 ">
             Certifications & Achievements
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "AWS Certified Developer",
-              "Google Analytics Certified", 
-              "React Specialist",
-              "Agile Practitioner"
+              {
+                title: "Participated in RECKON 5.0",
+                link: "https://drive.google.com/file/d/1q9zUMLVeJHMhzZYK_MBK_EEVTP4yU-Q6/view?usp=sharing",
+              },
+              {
+                title: "Certificate of Internship – Aarvy Technologies",
+                link: "https://drive.google.com/file/d/1xBIXZw67yHuetrXdTIy2BpQwQ3ed3ddu/view?usp=sharing", 
+              },
+              {
+                title: "Certificate of Internship – Celebal Technologies",
+                link: "https://drive.google.com/file/d/13xuRkfCv3m3q8Bgd3Caa0AvUxFQFi750/view?usp=sharing", 
+              },
             ].map((cert, index) => (
-              <div
+              <a
                 key={index}
-                className="p-4 bg-portfolio-blue/5 rounded-lg border border-portfolio-blue/20 hover:bg-portfolio-blue/10 transition-colors"
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 bg-portfolio-blue/5 rounded-lg border border-portfolio-blue/20 hover:bg-portfolio-blue/10 transition-colors"
               >
-                <span className="text-white font-medium">{cert}</span>
-              </div>
+                <span className="text-white font-medium">{cert.title}</span>
+              </a>
             ))}
           </div>
+
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,11 +17,24 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post("http://localhost:5000/api/contact", formData);
+
+    if (res.status === 200 || res.status === 201) {
+      alert("Message sent successfully!");
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      alert("Failed to send message. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error sending message:", error);
+    alert("Something went wrong while sending your message.");
+  }
+};
+
 
   const contactInfo = [
     {
@@ -133,7 +147,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-portfolio-blue focus:border-transparent transition-all duration-200 resize-none"
-                  // placeholder="Tell me about your project..."
+                  placeholder="How may I help you?"
                 ></textarea>
               </div>
               <button

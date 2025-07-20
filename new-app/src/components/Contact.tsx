@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import axios from 'axios';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,50 +17,55 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post("http://localhost:5000/api/contact", formData);
+
+    if (res.status === 201 || res.status === 200) {
+      alert("Message sent successfully!");
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      alert(res.data.error || "Something went wrong.");
+    }
+  } catch (error: any) {
+    console.error("Error submitting form:", error);
+    alert(error?.response?.data?.error || "Failed to send message.");
+  }
+};
 
   const contactInfo = [
     {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      value: "john.doe@example.com",
-      link: "mailto:john.doe@example.com"
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Location",
-      value: "San Francisco, CA",
-      link: "#"
-    }
+         icon: <Mail className="w-6 h-6" />,
+         title: "Email",
+         value: "anjalisen8203@gmail.com",
+         link: "mailto:anjalisen8203@gmail.com"
+       },
+       {
+         icon: <Phone className="w-6 h-6" />,
+         title: "Phone",
+         value: "8000358112",
+         link: "tel:+8000358112"
+       },
+       {
+         icon: <MapPin className="w-6 h-6" />,
+         title: "Location",
+         value: "Jodhpur,Rajasthan",
+         link: "#"
+       }
   ];
 
   const socialLinks = [
     {
       icon: <Github className="w-6 h-6" />,
       name: "GitHub",
-      url: "https://github.com"
+      url: "https://github.com/anjalisen66"
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
       name: "LinkedIn",
-      url: "https://linkedin.com"
-    },
-    {
-      icon: <Twitter className="w-6 h-6" />,
-      name: "Twitter",
-      url: "https://twitter.com"
+      url: "https://www.linkedin.com/in/anjali-sen-12026022a/"
     }
   ];
 
@@ -141,7 +147,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-portfolio-blue focus:border-transparent transition-all duration-200 resize-none"
-                  placeholder="Tell me about your project..."
+                  placeholder="How may I help you?"
                 ></textarea>
               </div>
               <button
