@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
 import axios from 'axios';
+const baseURL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ const Contact = () => {
   e.preventDefault();
 
   try {
-    const res = await axios.post("http://localhost:5000/api/contact", formData);
+    const res = await axios.post(`${baseURL}/api/contact`, formData);
 
     if (res.status === 201 || res.status === 200) {
       alert("Message sent successfully!");
