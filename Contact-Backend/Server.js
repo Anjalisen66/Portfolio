@@ -8,7 +8,7 @@ const Contact = require("./Models/Contact");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = ['http://localhost:3000', 'https://portfolio-anjali-sens-projects.vercel.app/'];
+const allowedOrigins = ['http://localhost:3000', 'https://portfolio-iota-nine-kdh1ba296s.vercel.app/'];
 
 
 // Middleware
