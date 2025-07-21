@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-rea
 import axios from "axios";
 const baseURL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -23,6 +24,7 @@ const Contact = () => {
   e.preventDefault();
 
   try {
+    console.log("BASE URL:", baseURL);
     const res = await axios.post(`${baseURL}/api/contact`, formData);
 
     if (res.status === 200 || res.status === 201) {
