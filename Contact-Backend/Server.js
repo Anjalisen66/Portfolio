@@ -33,6 +33,11 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
+app.get("/api/health", (req, res) => {
+  res.status(200).send("Server is healthy");
+});
+
+
 // POST: Save contact form data
 app.post("/api/contact", async (req, res) => {
   const { name, email, subject, message } = req.body;
