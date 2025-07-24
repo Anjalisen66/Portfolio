@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
 import axios from "axios";
-const baseURL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 
 const Contact = () => {
